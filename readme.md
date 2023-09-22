@@ -1,5 +1,8 @@
 # JSON-server
 
+### install postman
+https://www.postman.com/downloads/
+ 
 ### Backend  
 json-server 설치:  
 npm i -g json-server  
