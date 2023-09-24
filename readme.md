@@ -12,6 +12,6 @@ json-server --watch db.json --port 3001
 
 ### Frontend  
 cd axios-01  
-yarn install  
+yarn install  # node_modules 설치  
 yarn start
 
