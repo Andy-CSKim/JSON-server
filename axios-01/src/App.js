@@ -25,7 +25,6 @@ function App() {
   
   // <p>welcome {username[0].name}</p>
   // <p>welcome {username[1].name}</p>
-  // <p>welcome {username[2].name}</p>
 
   return (
     <div className="App">
@@ -39,3 +38,4 @@ function App() {
 }
 
 export default App;
+

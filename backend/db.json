@@ -19,6 +19,16 @@
       "id": 4,
       "content": "Python",
       "completed": true
+    },
+    {
+      "id": 5,
+      "content": "C++",
+      "completed": true
+    },
+    {
+      "content": "Java",
+      "completed": true,
+      "id": 6
     }
   ],
   "users": [
@@ -41,6 +51,11 @@
       "id": 4,
       "name": "Andy",
       "role": "coder"
+    },
+    {
+      "name": "William",
+      "role": "manager",
+      "id": 5
     }
   ]
 }
