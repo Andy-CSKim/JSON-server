@@ -17,7 +17,7 @@ function App() {
     getUser().then((resp) => {
       console.log(resp);
       // [0] : {id: 1, name: 'Lee', role: 'developer'}
-      setDataFromServer(resp);
+      setDataFromServer(JSON.stringify(resp));
     });
 
   }
@@ -31,7 +31,7 @@ function App() {
     postUser(newUser).then((resp) => {
       console.log(resp);
       // [0] : {id: 1, name: 'Lee', role: 'developer'}
-      setDataFromServer(resp);
+      setDataFromServer(JSON.stringify(resp));
     });
   }
 
@@ -45,7 +45,7 @@ function App() {
     putUser(id, curUser).then((resp) => {
       console.log(resp);
       // [0] : {id: 1, name: 'Lee', role: 'developer'}
-      setDataFromServer(resp);
+      setDataFromServer(JSON.stringify(resp));
     });
   }
 
@@ -58,7 +58,7 @@ function App() {
     deleteUser(id).then((resp) => {
       console.log(resp);
       // [0] : {id: 1, name: 'Lee', role: 'developer'}
-      setDataFromServer(resp);
+      setDataFromServer(JSON.stringify(resp));
     });
   }  
   // username = []
