@@ -8,11 +8,15 @@ import {getUser, postUser, putUser, deleteUser} from './fetch';
 
 function App() {
   const [dataFromServer, setDataFromServer] = useState() // empty array
+  const [name, setName] = useState("")
+  const [role, setRole] = useState("")
+  const [id, setId] = useState(0)
+
+  // for checking how many times App() is called
+  console.log(`App() is called with name: ${name}, role: ${role}, id: ${id}`)
 
   const doGet = () => {
-    console.log("Get()");
-    // const resp = getUser();
-    // console.log(resp);  // Promise
+    console.log("Get ==> ");
 
     getUser().then((resp) => {
       console.log(resp);
@@ -23,10 +27,8 @@ function App() {
   }
 
   const doPost = () => {
-    console.log("Post()");
-    // const resp = getUser();
-    // console.log(resp);  // Promise
-    const newUser = {name: 'John', role: 'admin'};
+    console.log(`Post ==> name: ${name}, role: ${role}`)
+    const newUser = {name: `${name}`, role: `${role}`};
 
     postUser(newUser).then((resp) => {
       console.log(resp);
@@ -36,11 +38,8 @@ function App() {
   }
 
   const doPut = () => {
-    console.log("Put()");
-    // const resp = getUser();
-    // console.log(resp);  // Promise
-    const curUser = {name: 'John', role: 'admin'};
-    const id = 6;
+    console.log(`Put ==> id:${id}, name: ${name}, role: ${role}`)
+    const curUser = {name: `${name}`, role: `${role}`};
 
     putUser(id, curUser).then((resp) => {
       console.log(resp);
@@ -50,10 +49,7 @@ function App() {
   }
 
   const doDelete = () => {
-    console.log("Delete()");
-    // const resp = getUser();
-    // console.log(resp);  // Promise
-    const id = 6;
+    console.log(`Delete ==> ${id}`);
 
     deleteUser(id).then((resp) => {
       console.log(resp);
@@ -61,25 +57,22 @@ function App() {
       setDataFromServer(JSON.stringify(resp));
     });
   }  
-  // username = []
-  // username && username[0].name
-  // <p>welcome {username.length !== 0 && username[0].name}</p>
-  
-  // <p>welcome {username[0].name}</p>
-  // <p>welcome {username[1].name}</p>
 
   return (
     <div className="App">
       <header className="App-header">
         <p>CRUD example</p>
         <button onClick={doGet}>Get</button> <br/>
+        <input type="text" name="name" placeholder="name" onInput={e => setName(e.target.value)}/>
+        <input type="text" name="role" placeholder="role" onInput={e => setRole(e.target.value)}/>
+        <p>id is required only when put or delete</p>
+        <input type="number" step="1" name="id" placeholder="id" onInput={e => setId(e.target.value)}/> <br/>
         <button onClick={doPost}>Post</button> <br/>
         <button onClick={doPut}>Put</button> <br/>
         <button onClick={doDelete}>Delete</button> <br/>
 
         <br/><br/>
-        {/* {username.map((user) => <p>id:{user.id}<br/>name: {user.name}<br/> role: {user.role}</p>)} */}
-        <textarea name="postContent" rows={20} cols={100} value={dataFromServer}> </textarea>
+        <textarea name="postContent" rows={10} cols={50} value={dataFromServer}> </textarea>
 
       </header>
     </div>
