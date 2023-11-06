@@ -15,6 +15,6 @@ json-server --watch db.json --port 3001
 cd axios-01  
 yarn install  
 
-- frontend 폴더로 이동, react 실행(everytime)
+- frontend 폴더로 이동, react 실행(everytime)  
 yarn start
 
