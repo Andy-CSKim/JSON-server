@@ -5,16 +5,25 @@ import {useState, useEffect, useRef} from 'react';
 import {getUser, postUser, putUser, deleteUser} from './fetch';
 
 
+// function app() : what's the difference between function app() and function App()?
+// App() is a graphic component, app() is a function
 
 function App() {
+  // use dataFromServer when reading, use setDataFromServer(value) when writing
+  // React will call App() every time dataFromServer is changed
   const [dataFromServer, setDataFromServer] = useState() // empty array
   // change to useRef() to call once
   //const [name, setName] = useState("")
   // const [role, setRole] = useState("")
   // const [id, setId] = useState(0)
+
+  // use name.current when both reading and writing
+  // React won't call App() when name.current is changed
   const name = useRef("")
   const role = useRef("")
   const id = useRef(0)
+
+  let count = 0;
 
   // for checking how many times App() is called
   console.log(`App() is called with name: ${name.current}, role: ${role.current}, id: ${id.current}`)
