@@ -26,12 +26,13 @@ function App() {
   let count = 0;
 
   // for checking how many times App() is called
-  console.log(`App() is called with name: ${name.current}, role: ${role.current}, id: ${id.current}`)
+  console.log(`React visits App() to render: name=${name.current}, role=${role.current}, id=${id.current}`)
   
   const doGet = () => {
     console.log("Get ==> ");
 
     getUser().then((resp) => {
+      // server resposne is an array
       console.log(resp);
       // [0] : {id: 1, name: 'Lee', role: 'developer'}
       setDataFromServer(JSON.stringify(resp));
@@ -40,10 +41,11 @@ function App() {
   }
 
   const doPost = () => {
-    console.log(`Post ==> name: ${name.current}, role: ${role.current}`)
+    console.log(`Post ==> name=${name.current}, role=${role.current}`)
     const newUser = {name: `${name.current}`, role: `${role.current}`};
 
     postUser(newUser).then((resp) => {
+      // server resposne is an array
       console.log(resp);
       // [0] : {id: 1, name: 'Lee', role: 'developer'}
       setDataFromServer(JSON.stringify(resp));
@@ -51,10 +53,11 @@ function App() {
   }
 
   const doPut = () => {
-    console.log(`Put ==> id:${id.current}, name: ${name.current}, role: ${role.current}`)
+    console.log(`Put ==> id=${id.current}, name=${name.current}, role=${role.current}`)
     const curUser = {name: `${name.current}`, role: `${role.current}`};
 
     putUser(id.current, curUser).then((resp) => {
+      // server resposne is an array
       console.log(resp);
       // [0] : {id: 1, name: 'Lee', role: 'developer'}
       setDataFromServer(JSON.stringify(resp));
@@ -62,9 +65,10 @@ function App() {
   }
 
   const doDelete = () => {
-    console.log(`Delete ==> ${id.current}`);
+    console.log(`Delete ==> id=${id.current}`);
 
     deleteUser(id.current).then((resp) => {
+      // server resposne is an array
       console.log(resp);
       // [0] : {id: 1, name: 'Lee', role: 'developer'}
       setDataFromServer(JSON.stringify(resp));
