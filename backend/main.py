@@ -13,4 +13,5 @@ def read_root():
 # localhost:3001/items/5?q=hello
 @app.get("/items/{item_id}")
 def read_item(item_id: int, q: Union[str, None] = None):
+    print('read_item', item_id, q)
     return {"item_id": item_id, "q": q}
