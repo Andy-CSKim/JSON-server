@@ -15,3 +15,6 @@ def read_root():
 def read_item(item_id: int, q: Union[str, None] = None):
     print('read_item', item_id, q)
     return {"item_id": item_id, "q": q}
+
+@app.post("/items")  # item = {"name": "Foo", "price": 42.0}
+def create_item():
