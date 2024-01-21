@@ -35,7 +35,6 @@ def start_hangman():
 #         break
 
 @app.get("/guess")
-
 def hangman(q : str):
     global CHOSENWORD
     global answer 
