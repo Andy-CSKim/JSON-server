@@ -2,7 +2,14 @@ from typing import Union
 import random 
 from fastapi import FastAPI
 from pydantic import BaseModel
+
+class Item(BaseModel):
+    name: str
+    price: float
+    is_offer: bool = None
+
 app = FastAPI()
+
 words = ['python', 'java', 'kotlin', 'javascript']
 CHOSENWORD = None
 wrongCount = 0
