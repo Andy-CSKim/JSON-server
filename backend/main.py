@@ -20,8 +20,23 @@ def start_hangman():
     ANSWER = list(answer)
     return ' '.join(ANSWER)
 
+# res = start_hangman()
+# print(res)
 
-def hangman(guess):
+# while True:
+#     ch = input()
+#     if ch != "":
+#         print(hangman(ch))
+#     if wrongCount > 6:
+#         print("You are hanged!")
+#         break
+#     if ANSWER == CHOSENWORD:
+#         print ("Congratulations!")
+#         break
+
+@app.get("/guess")
+
+def hangman(q : str):
     global CHOSENWORD
     global answer 
     global ANSWER
@@ -30,8 +45,8 @@ def hangman(guess):
     count = 0
     right = 0
     while count < len(CHOSENWORD):
-        if guess == CHOSENWORD[count]:
-            ANSWER[count] = guess 
+        if q == CHOSENWORD[count]:
+            ANSWER[count] = q
             right += 1
         count += 1
     if right == 0:
@@ -41,22 +56,6 @@ def hangman(guess):
     answer = ' '.join(ANSWER)
 
     return answer
-
-res = start_hangman()
-print(res)
-
-while True:
-    ch = input()
-    if ch != "":
-        print(hangman(ch))
-    if wrongCount > 6:
-        print("You are hanged!")
-        break
-    if ANSWER == CHOSENWORD:
-        print ("Congratulations!")
-        break
-
-
 
 # localhost:3001/
 @app.get("/")
