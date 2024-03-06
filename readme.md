@@ -2,6 +2,7 @@
 
 ### install postman
 https://www.postman.com/downloads/
+drag-n-drop json file to postman
  
 ### Backend  
 - json-server 설치(one time):  
